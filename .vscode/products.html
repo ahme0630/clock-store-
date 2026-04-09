@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>المنتجات - متجر الساعات</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <div class="brand">
+        <img src="logo.jpg" alt="شعار متجر الساعات" />
+        <div>
+          <h1>متجر الساعات</h1>
+          <p>Clock Store</p>
+        </div>
+      </div>
+
+      <nav class="menu">
+        <a href="index.html">الرئيسية</a>
+        <a href="products.html">المنتجات</a>
+        <a href="cart.html">السلة</a>
+        <a href="checkout.html">الدفع</a>
+        <a href="about.html">من نحن</a>
+        <a href="contact.html">تواصل</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="page-head">
+        <h2>المنتجات</h2>
+        <p>نفس صور ساعاتك، بدون تغيير.</p>
+      </div>
+
+      <div class="products-grid">
+        <div class="product-card">
+          <img src="78b68839-b8e0-4da5-a7bd-95faeadf9ba2.JPG" alt="ساعة 1" />
+          <div class="product-body">
+            <h3>ساعة 1</h3>
+            <p>ساعة أنيقة بتفاصيل ناعمة ومظهر راقٍ.</p>
+            <div class="product-bottom">
+              <span>6000 ريال يمني</span>
+              <button class="btn gold" onclick="addToCart('ساعة 1','6000 ريال يمني','78b68839-b8e0-4da5-a7bd-95faeadf9ba2.JPG')">أضف للسلة</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="d057ed7d-a2bf-46b1-b228-88ad79d1ef4c.JPG" alt="ساعة 2" />
+          <div class="product-body">
+            <h3>ساعة 2</h3>
+            <p>تصميم كلاسيكي جذاب يمنحك مظهرًا فخمًا.</p>
+            <div class="product-bottom">
+              <span>6000 ريال يمني</span>
+              <button class="btn gold" onclick="addToCart('ساعة 2','6000 ريال يمني','d057ed7d-a2bf-46b1-b228-88ad79d1ef4c.JPG')">أضف للسلة</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="a2a1fb22-3c72-40a5-9824-00425e84ece4.JPG" alt="ساعة 3" />
+          <div class="product-body">
+            <h3>ساعة 3</h3>
+            <p>قطعة مميزة بطابع قوي وعصري.</p>
+            <div class="product-bottom">
+              <span>6000 ريال يمني</span>
+              <button class="btn gold" onclick="addToCart('ساعة 3','6000 ريال يمني','a2a1fb22-3c72-40a5-9824-00425e84ece4.JPG')">أضف للسلة</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="107e55ac-e514-44a4-b7a2-0cc8774f4386.JPG" alt="ساعة 4" />
+          <div class="product-body">
+            <h3>ساعة 4</h3>
+            <p>تصميم مميز وفخم مناسب للطلب اليومي.</p>
+            <div class="product-bottom">
+              <span>6000 ريال يمني</span>
+              <button class="btn gold" onclick="addToCart('ساعة 4','6000 ريال يمني','107e55ac-e514-44a4-b7a2-0cc8774f4386.JPG')">أضف للسلة</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
