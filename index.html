@@ -226,6 +226,10 @@ footer{border-top:1px solid rgba(255,255,255,.08);padding:22px 0;text-align:cent
   border:1px solid rgba(255,255,255,.10);border-radius:28px;
   padding:28px 20px;box-shadow:var(--shadow);animation:welcomeUp .7s ease;
 }
+.welcome-close{
+  position:absolute;top:18px;left:18px;width:44px;height:44px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.35);color:#fff;z-index:2;cursor:pointer
+}
 .mobile-welcome-content img{
   width:82px;height:82px;border-radius:50%;object-fit:cover;margin:0 auto 14px;
   border:1px solid rgba(255,255,255,.16);box-shadow:0 10px 30px rgba(0,0,0,.35)
@@ -338,14 +342,15 @@ footer{border-top:1px solid rgba(255,255,255,.08);padding:22px 0;text-align:cent
 </aside>
 
 <div class="mobile-welcome" id="mobileWelcome">
-  <div class="mobile-welcome-content">
+  <button class="welcome-close" onclick="closeWelcome()">✕</button>
+  <div class="mobile-welcome-content" onclick="event.stopPropagation()">
     <img src="logo.jpg" alt="شعار متجر الساعات">
     <span>Clock Store</span>
     <h2>أهلاً بك في عالم الأناقة</h2>
     <p>ساعات فخمة بتصميم عصري ولمسة راقية من أول لحظة.</p>
     <div class="mobile-welcome-actions">
-      <a href="#products" class="btn btn-gold" onclick="closeWelcome()">ابدأ التسوق</a>
-      <button class="btn btn-ghost" onclick="closeWelcome()">دخول المتجر</button>
+      <button class="btn btn-gold" onclick="closeWelcomeAndGo('products')">ابدأ التسوق</button>
+      <button class="btn btn-ghost" onclick="closeWelcomeAndGo('home')">دخول المتجر</button>
     </div>
   </div>
 </div>
@@ -629,13 +634,34 @@ function addToCart(name, priceText, image){
   }
   function closeWelcome(){
   const welcome = document.getElementById('mobileWelcome');
-  if(welcome){
-    welcome.classList.add('hide');
-    setTimeout(() => {
-      welcome.style.display = 'none';
-    }, 350);
-  }
+  if(!welcome) return;
+  welcome.classList.add('hide');
+  setTimeout(() => {
+    welcome.style.display = 'none';
+  }, 350);
 }
+
+function closeWelcomeAndGo(sectionId){
+  closeWelcome();
+  setTimeout(() => {
+    const section = document.getElementById(sectionId);
+    if(section){
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, 200);
+}
+
+window.addEventListener('load', () => {
+  const welcome = document.getElementById('mobileWelcome');
+  if(window.innerWidth <= 700 && welcome){
+    welcome.style.display = 'flex';
+    setTimeout(() => {
+      if(welcome.style.display !== 'none') {
+        closeWelcome();
+      }
+    }, 3500);
+  }
+});
 
 updateCartUI();
   toggleCart(true);
@@ -816,4 +842,5 @@ updateCartUI();
 </script>
 </body>
 </html>
+
 
