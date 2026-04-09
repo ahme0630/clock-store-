@@ -214,39 +214,11 @@ footer{border-top:1px solid rgba(255,255,255,.08);padding:22px 0;text-align:cent
 }
 
 .mobile-bottom-bar{display:none}
-.mobile-welcome{
-  position:fixed;inset:0;z-index:1400;
-  background:linear-gradient(180deg, rgba(0,0,0,.76), rgba(0,0,0,.94)), url('78b68839-b8e0-4da5-a7bd-95faeadf9ba2.JPG') center/cover no-repeat;
-  display:none;align-items:center;justify-content:center;padding:24px;
-}
-.mobile-welcome.hide{opacity:0;pointer-events:none;transition:.35s}
-.mobile-welcome-content{
-  width:min(100%, 380px);text-align:center;
-  background:rgba(10,10,10,.58);backdrop-filter:blur(16px);
-  border:1px solid rgba(255,255,255,.10);border-radius:28px;
-  padding:28px 20px;box-shadow:var(--shadow);animation:welcomeUp .7s ease;
-}
-.welcome-close{
-  position:absolute;top:18px;left:18px;width:44px;height:44px;border-radius:50%;
-  border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.35);color:#fff;z-index:2;cursor:pointer
-}
-.mobile-welcome-content img{
-  width:82px;height:82px;border-radius:50%;object-fit:cover;margin:0 auto 14px;
-  border:1px solid rgba(255,255,255,.16);box-shadow:0 10px 30px rgba(0,0,0,.35)
-}
-.mobile-welcome-content span{
-  display:inline-block;color:var(--gold);font-size:13px;margin-bottom:10px;
-  padding:7px 12px;border-radius:999px;background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.2)
-}
-.mobile-welcome-content h2{font-size:32px;line-height:1.18;margin-bottom:12px}
-.mobile-welcome-content p{color:var(--muted);font-size:15px;line-height:1.9;margin-bottom:18px}
-.mobile-welcome-actions{display:flex;flex-direction:column;gap:10px}
-@keyframes welcomeUp{from{opacity:0;transform:translateY(30px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+
 
 @media (max-width:1100px){.products{grid-template-columns:repeat(2,1fr)}.pay-grid{grid-template-columns:1fr}.features{grid-template-columns:1fr}}
 @media (max-width:900px){.hero-grid,.checkout-grid{grid-template-columns:1fr}.hero-card img{height:320px}}
 @media (max-width:700px){
-  .mobile-welcome{display:flex}
 
   .container{width:min(100%,92%)}
   header{padding-bottom:6px}
@@ -340,20 +312,6 @@ footer{border-top:1px solid rgba(255,255,255,.08);padding:22px 0;text-align:cent
     <button class="btn btn-gold" onclick="toggleMobileMenu(false); toggleCart(true);">فتح السلة</button>
   </nav>
 </aside>
-
-<div class="mobile-welcome" id="mobileWelcome">
-  <button class="welcome-close" onclick="closeWelcome()">✕</button>
-  <div class="mobile-welcome-content" onclick="event.stopPropagation()">
-    <img src="logo.jpg" alt="شعار متجر الساعات">
-    <span>Clock Store</span>
-    <h2>أهلاً بك في عالم الأناقة</h2>
-    <p>ساعات فخمة بتصميم عصري ولمسة راقية من أول لحظة.</p>
-    <div class="mobile-welcome-actions">
-      <button class="btn btn-gold" onclick="closeWelcomeAndGo('products')">ابدأ التسوق</button>
-      <button class="btn btn-ghost" onclick="closeWelcomeAndGo('home')">دخول المتجر</button>
-    </div>
-  </div>
-</div>
 
 <section class="hero" id="home">
   <div class="container hero-grid">
@@ -632,38 +590,7 @@ function addToCart(name, priceText, image){
   }else{
     cart.push({ name, priceText, price: parsePrice(priceText), image, qty: 1 });
   }
-  function closeWelcome(){
-  const welcome = document.getElementById('mobileWelcome');
-  if(!welcome) return;
-  welcome.classList.add('hide');
-  setTimeout(() => {
-    welcome.style.display = 'none';
-  }, 350);
-}
-
-function closeWelcomeAndGo(sectionId){
-  closeWelcome();
-  setTimeout(() => {
-    const section = document.getElementById(sectionId);
-    if(section){
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, 200);
-}
-
-window.addEventListener('load', () => {
-  const welcome = document.getElementById('mobileWelcome');
-  if(window.innerWidth <= 700 && welcome){
-    welcome.style.display = 'flex';
-    setTimeout(() => {
-      if(welcome.style.display !== 'none') {
-        closeWelcome();
-      }
-    }, 3500);
-  }
-});
-
-updateCartUI();
+  updateCartUI();
   toggleCart(true);
 }
 
@@ -842,5 +769,6 @@ updateCartUI();
 </script>
 </body>
 </html>
+
 
 
