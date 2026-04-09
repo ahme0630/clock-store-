@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الدفع - متجر الساعات</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body onload="renderCheckoutSummary()">
+  <header class="site-header">
+    <div class="container nav">
+      <div class="brand">
+        <img src="logo.jpg" alt="شعار متجر الساعات" />
+        <div>
+          <h1>متجر الساعات</h1>
+          <p>Clock Store</p>
+        </div>
+      </div>
+
+      <nav class="menu">
+        <a href="index.html">الرئيسية</a>
+        <a href="products.html">المنتجات</a>
+        <a href="cart.html">السلة</a>
+        <a href="checkout.html">الدفع</a>
+        <a href="about.html">من نحن</a>
+        <a href="contact.html">تواصل</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container checkout-grid">
+      <div class="checkout-card">
+        <h2>إتمام الطلب</h2>
+
+        <label>الاسم الكامل</label>
+        <input id="customerName" type="text" placeholder="اكتب الاسم الكامل" />
+
+        <label>رقم الهاتف</label>
+        <input id="customerPhone" type="text" placeholder="773771761" />
+
+        <label>العنوان</label>
+        <input id="customerAddress" type="text" placeholder="المدينة / المنطقة / أقرب معلم" />
+
+        <label>طريقة الدفع</label>
+        <select id="paymentMethod">
+          <option>كاش عند الاستلام</option>
+          <option>تحويل عبر الكريمي</option>
+        </select>
+
+        <div class="note-box">
+          للتحويل عبر الكريمي استخدم الرقم:
+          <strong>773771761</strong>
+        </div>
+
+        <label>ملاحظات إضافية</label>
+        <textarea id="customerNotes" placeholder="أي ملاحظات إضافية"></textarea>
+
+        <button class="btn gold full" onclick="sendOrderWhatsApp()">إرسال الطلب عبر واتساب</button>
+      </div>
+
+      <div class="checkout-card">
+        <h2>ملخص الطلب</h2>
+        <div id="checkoutSummary"></div>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
