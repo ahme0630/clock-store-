@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>من نحن - متجر الساعات</title>
+    <title>السلة - متجر الساعات</title>
     <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body onload="renderCartPage()">
     <header class="site-header">
         <div class="container nav">
             <div class="brand">
@@ -29,25 +29,20 @@
     </header>
 
     <main class="section">
-        <div class="container single-box">
-            <h2>من نحن</h2>
-            <p>
-                متجر الساعات هو متجر يهتم بتقديم ساعات أنيقة وعصرية بجودة عالية ولمسة فخامة.
-            </p>
-            <p>
-                نحرص على اختيار تصاميم مميزة تناسب جميع الأذواق وتضيف لمسة أناقة لكل يوم.
-            </p>
-            <p>
-                هدفنا هو تقديم تجربة طلب سهلة وسريعة مع تواصل مباشر عبر واتساب ومنصات التواصل الاجتماعي.
-            </p>
+        <div class="container">
+            <div class="page-head">
+                <h2>سلة المشتريات</h2>
+            </div>
+
+            <div id="cartItems"></div>
+
+            <div class="cart-summary-box">
+                <p>عدد المنتجات: <strong id="cartCount">0</strong></p>
+                <p>الإجمالي: <strong id="cartTotal">0 ريال</strong></p>
+                <a href="checkout.html" class="btn gold">الانتقال للدفع</a>
+            </div>
         </div>
     </main>
-
-    <footer class="site-footer">
-        <div class="container">
-            <p>&copy; 2024 متجر الساعات. جميع الحقوق محفوظة.</p>
-        </div>
-    </footer>
 
     <script src="script.js"></script>
 </body>
